@@ -1,0 +1,45 @@
+What is Hibernate Framework?
+What is Java Persistence API (JPA)?
+What are the important benefits of using Hibernate Framework?
+What are the advantages of Hibernate over JDBC?
+Name some important interfaces of Hibernate framework?
+What is hibernate configuration file?
+What is hibernate mapping file?
+Name some important annotations used for Hibernate mapping?
+What is Hibernate SessionFactory and how to configure it?
+Hibernate SessionFactory is thread safe?
+What is Hibernate Session and how to get it?
+Hibernate Session is thread safe?
+What is difference between openSession and getCurrentSession?
+What is difference between Hibernate Session get() and load() method?
+What is hibernate caching? Explain Hibernate first level cache?
+How to configure Hibernate Second Level Cache using EHCache?
+What are different states of an entity bean?
+What is use of Hibernate Session merge() call?
+What is difference between Hibernate save(), saveOrUpdate() and persist() methods?
+What will happen if we don’t have no-args constructor in Entity bean?
+What is difference between sorted collection and ordered collection, which one is better?
+What are the collection types in Hibernate?
+How to implement Joins in Hibernate?
+Why we should not make Entity Class final?
+What is HQL and what are it’s benefits?
+What is Query Cache in Hibernate?
+Can we execute native sql query in hibernate?
+What is the benefit of native sql query support in hibernate?
+What is Named SQL Query?
+What are the benefits of Named SQL Query?
+What is the benefit of Hibernate Criteria API?
+How to log hibernate generated sql queries in log files?
+What is Hibernate Proxy and how it helps in lazy loading?
+How to implement relationships in hibernate?
+How transaction management works in Hibernate?
+What is cascading and what are different types of cascading?
+How to integrate log4j logging in hibernate application?
+How to use application server JNDI DataSource with Hibernate framework?
+How to integrate Hibernate and Spring frameworks?
+What is HibernateTemplate class?
+How to integrate Hibernate with Servlet or Struts2 web applications?
+Which design patterns are used in Hibernate framework?
+What are best practices to follow with Hibernate framework?
+What is Hibernate Validator Framework?
+What is the benefit of Hibernate Tools Eclipse plugin?
