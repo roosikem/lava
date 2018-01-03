@@ -1,0 +1,400 @@
+
+
+PUT
+The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI
+POST request identifies the resource that will handle the enclosed entity
+PUT request identifies the entity enclosed with the request
+spring security
+spring boot
+spring data
+design pattern
+digest cycle
+promise
+service
+directive
+filter
+asynchronous call angular js
+
+-----------------------------
+comparable comparatr
+multi threading (2 object level synchronization)
+collectionf
+hashing
+equal and hashcode
+task:annotation-driven
+@scheduled
+@cron
+
+
+delegatingFilterProxy
+--> static content filter security="none"
+-> http intercept-url
+-> login url
+-> login form
+-> logout handler
+-> accessdenied handler
+<http>
+--------------------------------------------------------------------
+HARMAN
+Telephonic
+STATIC
+String
+checked and unchecked exception
+implementation of hashmap
+rehashing
+copy a file from one to another
+difference between request, session and application
+---------------------------------------------------------------------
+INCEDOS
+Put post
+Checked n unchecked exception
+Aop
+Spring schedular
+Iterating hashmap
+Immutable
+Types of view resolver
+Implement mvc
+Difference between soap based and restfull application
+Imp elements of pom.xml
+Advice in aop
+Difference between string builder n string buffer
+Immutability
+Sortedmaps
+POM.xml
+--------------------------------------------------------------------------------------
+ALETHE LAB
+Regular expresion
+Threading to call even odd numbers with waiting of thread
+Controller with in controller
+Given string find count of alphabets with one loop without hashmap
+Large file(3gb) to be read n print on different file without loop
+Calling the api n sending the output to client call is long..
+Bitwise & operator
+-------------------------------------------------------------------------------------
+UTHOPIA
+Reverse a string using recursion
+India to be top of collection
+Threading to implement crawling and saving on db so that less time is taken
+-------------------------------------------------------------------------------------
+NEWGEN
+Class already extended can be again extwnded
+Implement should come before extend
+>>> operator
+Overloading return type different
+Join method in threading
+Int i = 3, y;
+F with float
+Static variable can be accessed using object name
+Static method call with in clasa with out class name
+Rectangle class cast exceptkon
+Partent reference getting d child object
+
+difference between jquery and javascript
+routing
+template
+------------------------------------------------------------------------------------
+NUCLEUS
+1. benefits of di
+2. transaction
+3. scopes of beans
+4. how/ways to initialise application context
+5. autowiring 
+6. drawback of auto wiring
+7. how to make connections with different schema in spring
+8. create a mymap
+9. remove method in mymap
+10. what is hashing
+11. class to create connections
+12. how to use application context and factory bean
+------------------------------------------------------------------------------------
+NAGGARRO
+permgen
+stack and heap concept
+jquery ajax
+profile in maven
+TreeSet
+Diff. between Abstract class n Interface (while designing)
+Spring bean scopes
+AOP Aspect
+Different types of advice
+Core interfaces of hibernate
+Diff. between load and get
+auto_flush in hibernate
+dirty read in hibernate
+second level cache in hibernate
+RequestDispatcher n sendRedirect
+life cycle of JSP
+Questions about coding around (thought process)
+Some equals n hashCode questions based on HashMap
+sleep n wait in thread
+Composition n aggregation
+Query optimization
+How to inject prototype bean into singleton bean n get new prototype bean on every request
+What is use of internal view resolver
+Singleton
+AbstractFactory
+Why n when to use inner classes n example in JDK
+about overriding
+Serilization (twisted questions)
+ConcurrentHashMap
+Garbage Collector
+Comparable n Comparator
+String pool
+try{}catch()finally{}
+Diff. between Error n Exception
+Diff. between PreparedStatement n Statement
+---------------------------------------------------------------------------------------
+RBS
+Thread pool implementation using executor
+abstract factory, adapter, singleton, flyweight, observer
+Diff. between Error n Exception
+why we should not catch Throwable
+Implement a singleton cache which gets refresh in every 5 mins.
+diff. between notify and notifyall which will b called when
+diff. between sleep n wait
+IllegalThreadMonitorException
+What is Future object
+If a worker thread creates child threads n child threads throw exception how to catch those
+ArrayList in memory
+Spring scope
+How AOP internally works
+question about design round
+scenario based questions
+concurrentmodificationexception in concurrent collections
+how to implement prototype bean in singleton bean
+what is use of AOP
+what is pointcut
+how to apply AOP in code
+few code questions about string 
+use of immutable object
+why string is immutable
+-----------------------------------------------------------------------------------------
+XEROX
+
+immutability 
+implement immutable class
+singleton
+implement singleton class
+final finally finalize
+==, equals
+pass by reference, pass by value
+iterator, list iterator
+polymorphism
+method overriding (visibility parent and child contract)
+hashmap implementation
+hashcode and equals contract
+java 5 whats new in java 5
+how string pool is implemented in java 5, java 6, java 7
+how string implemented while creating the object
+
+rootscope and scope
+passing value from one controller to another
+creating a template
+ng-if and ng-show difference
+ 
+default scope
+dependency injection types
+pass singleton bean
+pass prototype bean
+
+in and out parameter in my batis
+difference between ibatis and mybatis
+jdbc, hibernate, ibatis which one is preferred
+
+
+where todeploy in tomcat
+where to deploy in jboss
+when all folder is used
+jboss clustering
+
+-----------------------------------------------------
+
+how to make immutable
+how to make it singleton
+synchronization with singlwton
+synchronized hashmap and concurrent hashmap
+fail safe and fail fast
+classnotdound and nodeffound 
+make hashmap synchronized
+binary search tree whether sorted
+array sorted with few values swaped at ones then search
+
+
+
+------------------------------------------------------
+path variable and request variable
+restfull webservice and soap based webservice
+cyclic barrier and countdown latch
+concurrent hashmap and hashtable
+implement caching
+observer pattern
+singleton with serialization -> read resolve
+decorator pattern
+shallow copy and deep copy
+
+------------------------------------------------------
+merge sort
+asynchronous call in spring
+function to call ajax (few year back)
+implementation of ajax
+reflection
+class.forname
+class ref variable question
+assert
+avoiding a singleton by reflection
+hadoop
+threading new framework difference 	
+
+----------------------------------
+100 - 4 - 3 - 2 - 1 - 1 - 1 - 1 - 4 - 1
+
+2 computer comm through TCP
+thread Local
+single | &
+string builder and string buffer
+lower bound widecard
+
+-------------------------------
+
+Different ways to call validation
+1. @validation
+2. manually calling
+3. web binder
+
+@RestController combines @Controller and @ResponseBody
+
+-----------------------------------------
+difference between restcontroller and normal controller
+difference between synchronized and locks
+hibernate get and load
+hibernate level of caches
+given 5 GB memory of contact numbers and have 1 GB RAM how to sort them
+n+1 problem in hibernate
+given null what should be called String object or Object
+given stringBuilder and string is them at overloaded
+System.out.println - in this what is out
+make singleton class serializable 
+in spring  is beans are threadsafe
+-------------------------------------------------
+System.exit(0)
+scope of stateful bean - prototype
+configuration object is required for sessionFactory
+IOC is present in spring core
+-------------------------
+transaction in spring
+generics
+oswl principle
+encapsulation
+design pattern (adapter)
+collections and threading (1111, 2222, 5, 6, 7, 8) groups should be sent parallely in thread
+
+
+-----------------------------------------------------------------------------
+Quovantis Interview Questions
+working of hashmap
+difference between hashmap and concurrent hashmap
+fail fast and fail safe
+AOP working (proxy)
+N+1 problem in hibernate
+difference between REST and SOAP
+verbs of HTTP (GET POST PUT DELETE)
+difference between POST and PUT
+difference between spring framweok and others
+session handling in hibernate (lazy loading)
+reentered locks
+autowiring 
+program of palindrome
+
+-------------------------------------------
+find2nd highest marks
+3rd highest merks
+promise callback promiseq difference
+comparator to get marks in desc order
+puzzle
+
+find the combination of 3 numbers having sum as 100
+--------------------------
+Pitney Bowes
+
+== and === difference
+ul > li
+ul li
+null, undefined, nan
+passing data between two directives
+transclude
+using 2 directives together
+meaning of scope -> true, false, {}
+setTimeOut, settimeinterval
+provider, service factory difference
+name different providers
+which one is singleton
+ng-route
+hashcode and equals
+AOP implemented
+path variable (can we make path variable as required)and parameter
+request and prototype difference
+cyclic dependencies
+@controller and @rest controller
+threading -> running other thread parallely without using future object
+can we call start twice
+create rest webservice without request mapping
+event queue
+
+types of proxy
+
+
+===============================================
+hashmap
+rehashing
+difference between hashmap and concurrent hashmap
+spring security - ldap connections
+coupling and coersion
+java 8 addition
+linkedlist and arraylist difference
+
+iris
+weak and strong reference
+passing paramter between controllers
+custom directive
+minor gc and major gc
+routing in angular
+volatile keyword
+priority queue implementation
+collection hierarchy
+hashtable and concurrent hashmap
+
+---------------
+concurrent hashmap working
+future class
+blocking queue and count down latch
+program to treemap and add value on descending order
+-----------
+java 8 features
+functional interfaces
+servlet session tracking
+
+
+-------------------
+interceptor
+validator
+singleton design pattern and singleton 
+IOC and dependency injection
+lookup method
+spring flow
+AOP point cut -  types
+controller and component
+@inject and @autowire
+@async
+parameter in request mapping
+@resource
+design pateern in spring
+types of dI frameworks
+--------------
+inheritance in hibernate
+n+1 problem
+2nd level cache
+projection
+criteria
+validate
+connection pooling
+
