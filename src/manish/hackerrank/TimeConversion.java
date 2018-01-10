@@ -1,4 +1,4 @@
-package hackerrank;
+package manish.hackerrank;
 
 import java.util.Scanner;
 

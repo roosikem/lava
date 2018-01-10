@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Sorting {
 
@@ -214,13 +215,25 @@ public class Sorting {
 		quickSort(quickSort,0,quickSort.length-1);
 		printArray(quickSort);*/
 		
-		int sum[] = new int[] {1,2,3,4,6,8,9,11,12,13,5,6,7,23,435,56,57,58,90};
+		/*int sum[] = new int[] {1,2,3,4,6,8,9,11,12,13,5,6,7,23,435,56,57,58,90};
 		System.out.println(getLargeSequenceSum(sum));
 		
 		int binarySearch[] = new int[] {1,2,3,4,5,6,7,8,9,10};
 		quickSort(binarySearch,0,binarySearch.length-1);
 		System.out.println(binarySearch(binarySearch,9));
-		System.out.println(binarySearch[binarySearch(binarySearch,9)]);;
+		System.out.println(binarySearch[binarySearch(binarySearch,9)]);;*/
+		
+		int boxCount[] = new int[10000000];
+	    for(int i=0; i < boxCount.length; i++)
+	    {
+	    	Random r = new Random();
+	        boxCount[i]  =  (int) r.nextInt(7)*6 + 1;
+	    }
+	    
+	    long b = System.currentTimeMillis();
+	    bubbleSort(boxCount);
+	    System.out.println("time for executing bubble sort "+ (System.currentTimeMillis()-b));
+	    printArray(boxCount);
 		
 	}
 	
@@ -229,6 +242,31 @@ public class Sorting {
 			System.out.print(i+" ");
 		}
 		System.out.println();
+	}
+	
+	public static void sort(int[] a) {
+		int count = 1;
+		for(int i=0;i<a.length;i++) {
+			if(count == a.length) {
+				if(a[i]<a[count-2]) {
+					int temp = a[i];
+					a[i] = a[count-2];
+					a[count-2] = temp;
+					i=-1;
+					count=0;
+				}
+			}else {
+				if(a[i]>a[count]) {
+					int temp = a[i];
+					a[i] = a[count];
+					a[count] = temp;
+					i=-1;
+					//count=0;
+				}
+			}
+			count++;
+		}
+		
 	}
 
 }

@@ -1,9 +1,11 @@
 package programs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Program {
@@ -278,7 +280,65 @@ public class Program {
 		return temp;
 	}
 
+	public static int nthPrime(int n) {
+	    int candidate, count;
+	    for(candidate = 2, count = 0; count < n; ++candidate) {
+	        if (isPrimeNumber(candidate)) {
+	            ++count;
+	        }
+	    }
+	    // The candidate has been incremented once after the count reached n
+	    return candidate-1;
+	}
 	
+	public static void nprimeNumber() {
+		Scanner scanner = new Scanner(System.in);
+	      int i =0;
+	      int num =0;
+	      //Empty String
+	      String  primeNumbers = "";
+	      System.out.println("Enter the value of n:");
+	      int n = scanner.nextInt();
+	      scanner.close();
+	      for (i = 1; i <= n; i++)  	   
+	      { 		 		  
+	         int counter=0; 		  
+	         for(num =i; num>=1; num--)
+	         {
+		    if(i%num==0)
+		    {
+			counter = counter + 1;
+		    }
+		 }
+		 if (counter ==2)
+		 {
+		    //Appended the Prime number to the String
+		    primeNumbers = primeNumbers + i + " ";
+		 }	
+	      }	
+	      System.out.println("Prime numbers from 1 to n are :");
+	      System.out.println(primeNumbers);
+	}
+	
+	public static void nTotalPrimeNumber() {
+		Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number till which the prime numbers are to be calculated: ");
+        int input = scanner.nextInt();
+        scanner.close();
+        List<Integer> primes = new ArrayList<>();
+
+        // loop through the numbers one by one
+        for (int i = 2; ; i++) {
+            if(primes.size()>input-1) {
+            	break;
+            }
+            if(isPrimeNumber(i)) {
+            	  primes.add(i);
+            }
+        }
+        System.out.println("The number of prime is: " + primes.size() + ", and they are: " + primes.toString());
+    
+	}
 
 	public static void main(String[] args){
 		//int k[] = new int[]{100,1,2,101,2,4,5,102};
@@ -291,7 +351,7 @@ public class Program {
 		int sum;
 		sum = solveSum(a,b);
 		System.out.println(sum);*/
-		for(int i=1; i<=12; i++){ System.out.print(fabonoci(i) +" "); }
+		/*for(int i=1; i<=12; i++){ System.out.print(fabonoci(i) +" "); }
 
 		System.out.println(isPalindromNumber(123));
 		System.out.println(isPalindromNumber(121));
@@ -299,7 +359,25 @@ public class Program {
 		System.out.println("isArmstrong "+isArmStrong(153));
 		System.out.println("isArmstrong "+isArmStrong(371));
 		
-		System.out.println("isRotated "+isRoteted("MANISH", "MHANIS"));
+		System.out.println("isRotated "+isRoteted("MANISH", "MHANIS"));*/
+		
+		/*List<String> arrayList = new ArrayList<String>();
+		int[] bh = new int[8800];
+	    for (int i = 0; i < 8800; i++) {
+	    	bh[i] = i;
+	    }
+
+	    for (int start = 0; start < bh.length-1; start += 1000) {
+	        int end = Math.min(start + 1000, arrayList.size());
+	        List<String> sublist = arrayList.subList(start, end);
+	        System.out.println(sublist);
+	       int[] df = Arrays.copyOfRange(bh, start, end);
+	       System.out.println(df);
+	    }*/
+	    
+	   System.out.println(nthPrime(100));
+		//nprimeNumber();
+		nTotalPrimeNumber();
 		
 	}
 }

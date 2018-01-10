@@ -1,4 +1,4 @@
-package manish.programs;
+
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -280,6 +280,23 @@ public class Programs {
 		return temp;
 	}
 
+	static void findMissingNumbers(int[] a, int first, int last) {
+		// before the array: numbers between first and a[0]-1
+		for (int i = first; i < a[0]; i++) {
+			System.out.println(i);
+		}
+		// inside the array: at index i, a number is missing if it is between a[i-1]+1
+		// and a[i]-1
+		for (int i = 1; i < a.length; i++) {
+			for (int j = 1 + a[i - 1]; j < a[i]; j++) {
+				System.out.println(j);
+			}
+		}
+		// after the array: numbers between a[a.length-1] and last
+		for (int i = 1 + a[a.length - 1]; i <= last; i++) {
+			System.out.println(i);
+		}
+	}
 	
 
 	public static void main(String[] args){
@@ -293,7 +310,7 @@ public class Programs {
 		int sum;
 		sum = solveSum(a,b);
 		System.out.println(sum);*/
-		for(int i=1; i<=12; i++){ System.out.print(fabonoci(i) +" "); }
+		/*for(int i=1; i<=12; i++){ System.out.print(fabonoci(i) +" "); }
 
 		System.out.println(isPalindromNumber(123));
 		System.out.println(isPalindromNumber(121));
@@ -301,8 +318,44 @@ public class Programs {
 		System.out.println("isArmstrong "+isArmStrong(153));
 		System.out.println("isArmstrong "+isArmStrong(371));
 		
-		System.out.println("isRotated "+isRoteted("MANISH", "MHANIS"));
+		System.out.println("isRotated "+isRoteted("MANISH", "MHANIS"));*/
 		
+		int miisingArray[] = new int[]{0,1,3,2,9,5,6,4,8,7};
+		
+		//findMissingNumbers(miisingArray,0,11);
+		sort(miisingArray);
+		
+	}
+	
+	public static void sort(int[] a) {
+		int count = 1;
+		for(int i=0;i<a.length;i++) {
+			if(count == a.length) {
+				if(a[i]<a[count-2]) {
+					int temp = a[i];
+					a[i] = a[count];
+					a[count] = temp;
+					i=-1;
+					count=0;
+				}
+			}else {
+				if(a[i]>a[count]) {
+					int temp = a[i];
+					a[i] = a[count];
+					a[count] = temp;
+					i=-1;
+					count=0;
+				}
+			}
+			for(int v: a) {
+				System.out.print(v+" ");
+			}
+			System.out.println();
+			count++;
+		}
+		for(int v: a) {
+			System.out.println(v);
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package utils.collection.old;
+package manish.utils.collection.old;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,5 +13,7 @@ public class BasicCollection {
 		s.add("A");
 		System.out.println(s);
 	}
+	
+	
 
 }
