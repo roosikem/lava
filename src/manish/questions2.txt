@@ -1,0 +1,101 @@
+1) What is the Java Collection framework? List down its advantages?
+	A collection is an object that represents a group of objects.
+	Like in set theory, a set is group of elements.
+	Prior to JDK 1.2, JDK has some utility classes such as Vector and HashTable, but there was no concept of Collection framework. Later from JDK 1.2 onwards, JDK felt the need of having a consistent support for reusable data structures. Finally, the collections framework was designed and developed primarily by Joshua Bloch, and was introduced in JDK 1.2.
+	
+	Advantages
+		1. Reduced programming effort due to ready to use code
+		2. Increased performance because of high-performance implementations of data structures and algorithms
+		3. Provides interoperability between unrelated APIs by establishing a common language to pass collections back and forth
+		4. Easy to learn APIs by learning only some top level interfaces and supported operations
+2) Why Collection interface does not extend Cloneable and Serializable interface?
+	Well, simplest answer is “there is no need to do it“. Extending an interface simply means that you are creating a subtype of interface, in other words a more specialized behavior and Collection interface is not expected to do what Cloneable and Serializable interfaces do.
+
+	Another reason is that not everybody will have a reason to have Cloneable collection because if it has very large data, then every unnecessary clone operation will consume a big memory. Beginners might use it without knowing the consequences.
+
+	Another reason is that Cloneable and Serializable are very specialized behavior and so should be implemented only when required. For example, many concrete classes in collection implement these interfaces. So if you want this feature. use these collection classes otherwise use their alternative classes.
+	
+3) Why Map interface does not extend Collection interface?
+	A good answer to this interview question is “because they are incompatible“. Collection has a method add(Object o). Map can not have such method because it need key-value pair. There are other reasons also such as Map supports keySet, valueSet etc. Collection classes does not have such views.
+
+	Due to such big differences, Collection interface was not used in Map interface, and it was build in separate hierarchy.
+
+	List interface related
+4) Why we use List interface? What are main classes implementing List interface?
+	A java list is a “ordered” collection of elements. This ordering is a zero based index. It does not care about duplicates. Apart from methods defined in Collection interface, it does have its own methods also which are largely to manipulate the collection based on index location of element. These methods can be grouped as search, get, iteration and range view. All above operations support index locations
+
+5) How to convert an array of String to arraylist?
+	String[] words = {"ace", "boom", "crew", "dog", "eon"};
+	//Use Arrays utility class
+	List wordList = Arrays.asList(words);
+	
+	Set interface related
+
+6) Why we use Set interface? What are main classes implementing Set interface?
+	It models the mathematical set in set theory. Set interface is like List interface but with some differences. First, it is not ordered collection. So no ordering is preserved while adding or removing elements. The main feature it does provide is “uniqueness of elements“. It does not support duplicate elements.
+	Main classes implementing Set interface are : EnumSet, HashSet, LinkedHashSet, TreeSet.
+	
+7) How HashSet store elements?
+	private transient HashMap<E,Object> map;
+ 
+	//This is added as value for each key
+	private static final Object PRESENT = new Object();
+	
+	public boolean add(E e) {
+	return map.put(e, PRESENT)==null;
+	}
+8) Can a null element added to a TreeSet or HashSet?
+	HashMap also allows one null key, so one “null” is allowed in HashSet.
+	
+9) 	Tree Set 
+	TreeSet uses the same concept as HashSet for internal logic, but uses NavigableMap for storing the elements.
+	private transient NavigableMap<E,Object> m;
+ 
+	// Dummy value to associate with an Object in the backing Map
+	private static final Object PRESENT = new Object();
+	NavigableMap is subtype of SortedMap which does not allow null keys. So essentially, TreeSet also does not support null keys. It will throw NullPointerException if you try to add null element in TreeSet.
+
+	Map interface related
+10) Why we use Map interface? What are main classes implementing Map interface?
+	Map interface is a special type of collection which is used to store key-value pairs. It does not extend Collection interface for this reason. This interface provides methods to add, remove, search or iterate over various views of Map.
+
+	Main classes implementing Map interface are: HashMap, Hashtable, EnumMap, IdentityHashMap, LinkedHashMap and Properties.
+	
+11) What are IdentityHashMap and WeakHashMap?
+	IdentityHashMap is similar to HashMap except that it uses reference equality when comparing elements. IdentityHashMap class is not a widely used Map implementation. While this class implements the Map interface, it intentionally violates Map’s general contract, which mandates the use of the equals() method when comparing objects. IdentityHashMap is designed for use only in the rare cases wherein reference-equality semantics are required.
+
+	WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage collected when its key is no longer referenced outside of the WeakHashMap. This class is intended primarily for use with key objects whose equals methods test for object identity using the == operator. Once such a key is discarded it can never be recreated, so it is impossible to do a look-up of that key in a WeakHashMap at some later time and be surprised that its entry has been removed.
+
+12) Explain ConcurrentHashMap? How it works?
+13) What are different Collection views provided by Map interface?
+	key set view
+	value set view
+	entry set view
+	
+14) When to use HashMap or TreeMap?
+	HashMap is well known class and all of us know that. So, I will leave this part by saying that it is used to store key-value pairs and allows to perform many operations on such collection of pairs.
+
+	TreeMap is special form of HashMap. It maintains the ordering of keys which is missing in HashMap class. This ordering is by default “natural ordering”. The default ordering can be override by providing an instance of Comparator class, whose compare method will be used to maintain ordering of keys.
+
+	Please note that all keys inserted into the map must implement the Comparable interface (this is necessary to decide the ordering). Furthermore, all such keys must be mutually comparable: k1.compareTo(k2) must not throw a ClassCastException for any keys k1 and k2 in the map. If the user attempts to put a key into the map that violates this constraint (for example, the user attempts to put a string key into a map whose keys are integers), the put(Object key, Object value) call will throw a ClassCastException.
+
+Differences
+
+15) Difference between Set and List?
+	Set is unordered collection where List is ordered collection based on zero based index.
+	List allow duplicate elements but Set does not allow duplicates.
+	List does not prevent inserting null elements (as many you like), but Set will allow only one null element.
+
+16) Difference between List and Map?
+	List is collection of elements where as map is collection of key-value pairs. There is actually lots of differences which originate from first statement. They have separate top level interface, separate set of generic methods, different supported methods and different views of collection
+	
+17) Difference between HashMap and HashTable?
+	Hashtable is synchronized, whereas HashMap is not.
+	Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values.
+	The third significant difference between HashMap vs Hashtable is that Iterator in the HashMap is a fail-fast iterator while the enumerator for the Hashtable is not.
+	
+18) Difference between Vector and ArrayList?
+	All the methods of Vector is synchronized. But, the methods of ArrayList is not synchronized.
+	Vector is a Legacy class added in first release of JDK. ArrayList was part of JDK 1.2, when collection framework was introduced in java.
+	By default, Vector doubles the size of its array when it is re-sized internally. But, ArrayList increases by half of its size when it is re-sized.
+
