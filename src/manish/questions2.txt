@@ -8,6 +8,7 @@
 		2. Increased performance because of high-performance implementations of data structures and algorithms
 		3. Provides interoperability between unrelated APIs by establishing a common language to pass collections back and forth
 		4. Easy to learn APIs by learning only some top level interfaces and supported operations
+		
 2) Why Collection interface does not extend Cloneable and Serializable interface?
 	Well, simplest answer is “there is no need to do it“. Extending an interface simply means that you are creating a subtype of interface, in other words a more specialized behavior and Collection interface is not expected to do what Cloneable and Serializable interfaces do.
 
@@ -98,4 +99,119 @@ Differences
 	All the methods of Vector is synchronized. But, the methods of ArrayList is not synchronized.
 	Vector is a Legacy class added in first release of JDK. ArrayList was part of JDK 1.2, when collection framework was introduced in java.
 	By default, Vector doubles the size of its array when it is re-sized internally. But, ArrayList increases by half of its size when it is re-sized.
+
+19) Difference between Iterator and Enumeration?
+	Iterators differ from enumerations in three ways:
+
+	Iterators allow the caller to remove elements from the underlying collection during the iteration with its remove() method. You can not add/remove elements from a collection when using enumerator.
+	Enumeration is available in legacy classes i.e Vector/Stack etc. whereas Iterator is available in all modern collection classes.
+	Another minor difference is that Iterator has improved method names e.g. Enumeration.hasMoreElement() has become Iterator.hasNext(), Enumeration.nextElement() has become Iterator.next() etc.
+	
+20) Difference between Iterator and ListIterator?
+	There are three Differences are there:
+
+	We can use Iterator to traverse Set and List and also Map type of Objects. But List Iterator can be used to traverse for List type Objects, but not for Set type of Objects.
+	By using Iterator we can retrieve the elements from Collection Object in forward direction only whereas List Iterator, which allows you to traverse in either directions using hasPrevious() and previous() methods.
+	ListIterator allows you modify the list using add() remove() methods. Using Iterator you can not add, only remove the elements.
+	
+21) Difference between ArrayList and LinkedList?
+	LinkedList store elements within a doubly-linked list data structure. ArrayList store elements within a dynamically resizing array.
+	LinkedList allows for constant-time insertions or removals, but only sequential access of elements. In other words, you can walk the list forwards or backwards, but grabbing an element in the middle takes time proportional to the size of the list. ArrayLists, on the other hand, allow random access, so you can grab any element in constant time. But adding or removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap.
+	LinkedList has more memory overhead than ArrayList because in ArrayList each index only holds actual object (data) but in case of LinkedList each node holds both data and address of next and previous node.
+	
+22) How to make a collection read only?
+
+	Collections.unmodifiableList(list);
+	Collections.unmodifiableSet(set);
+	Collections.unmodifiableMap(map);
+
+23) How to make a collection thread safe?
+	
+	Collections.synchronizedList(list);
+	Collections.synchronizedSet(set);
+	Collections.synchronizedMap(map);
+
+24) Why there is not method like Iterator.add() to add elements to the collection?
+	The sole purpose of an Iterator is to enumerate through a collection. All collections contain the add() method to serve your purpose. There would be no point in adding to an Iterator because the collection may or may not be ordered. And add() method can not have same implementation for ordered and unordered collections.
+	
+	
+25) What is the right data type to represent a price in Java?
+	BigDecimal if memory is not a concern and Performance is not critical, otherwise double with predefined precision.
+	Don’t use float and double on monetary calculation.
+	Use BigDecimal, long or int for monetary calculation.
+	Use BigDecimal with String constructor and avoid double one.
+	Don’t use floating point result for comparing loop conditions.
+
+26) How do you convert bytes to String?
+	you can convert bytes to the string using string constructor which accepts byte[], just make sure that right character encoding otherwise platform's default character encoding will be used which may or may not be same.
+	String str = new String(bytes, "UTF-8");
+	If you are reading byte array from any text file e.g. XML document, HTML file or binary file, you can use the Apache Commons IO library to convert the FileInputStream to a String directly. This method also buffers the input internally, so there is no need to use another BufferedInputStream.
+	
+	String fromStream = IOUtils.toString(fileInputStream, "UTF-8");
+	Some programmers, also recommends to use Charset over String for specifying character encoding,  e.g. instead of "UTF-8" use StandardCharsets.UTF_8 mainly to avoid
+	
+	String str = IOUtils.toString(fis,StandardCharsets.UTF_8);
+	Use character encoding from the source e.g. Content-Type in HTML files, or <?xml encoding="…">.
+	Use XML parsers to parse XML files instead of finding character encoding and reading it via InputStream, some things are best left for demo code only. 
+	Prefer Charset constants e.g. StandardCharsets.UTF_16 instead of String "UTF-16"
+	Never rely on platform's default encoding scheme
+	
+27) Is ++ operator is thread-safe in Java? 
+	 No it's not a thread safe operator because its involve multiple instructions like reading a value, incriminating it and storing it back into memory which can be overlapped between multiple threads.
+
+28) Can I store a double value in a long variable without casting? (answer)
+	No, you cannot store a double value into a long variable without casting because the range of double is more  that long and you we need to type cast. It's not dificult to answer this question but many develoepr get it wrong due to confusion on which one is bigger between double and long in Java.
+
+29) Why is String Immutable in Java? 
+	1) String Pool
+	2) Security
+	3) Use of String in Class Loading Mechanism
+	4) Multithreading Benefits
+	5) Optimization and Performance
+
+30) What is the size of int in 64-bit JVM?
+	The size of an int variable is constant in Java, it's always 32-bit irrespective of platform. Which means the size of primitive int is same in both 32-bit and 64-bit Java virtual machine.
+	
+31) How do you find memory usage from Java program? How much percent of the heap is used?
+	You can use memory related methods from java.lang.Runtime class to get the free memory, total memory and maximum heap memory in Java.  By using these methods, you can find out how many percents of the heap is used and how much heap space is remaining. Runtime.freeMemory() return amount of free memory in bytes, Runtime.totalMemory() returns total memory in bytes and Runtime.maxMemory() returns maximum memory in bytes.
+	
+32) Difference between final, finalize and finally? (answer)
+	The final is a modifier which you can apply to variable, methods and classes. If you make a variable final it means its value cannot be changed once initialized. finalize is a method, which is called just before an object is a garbage collected, giving it last chance to resurrect itself, but the call to finalize is not guaranteed. finally is a keyword which is used in exception handling along with try and catch. the finally block is always executed irrespective of whether an exception is thrown from try block or not.
+	
+33) What is a compile time constant in Java? What is the risk of using it?
+	public static final variables are also known as a compile time constant, the public is optional there. They are replaced with actual values at compile time because compiler know their value up-front and also knows that it cannot be changed during run-time. One of the problem with this is that if you happened to use a public static final variable from some in-house or third party library and their value changed later than your client will still be using old value even after you deploy a new version of JARs. To avoid that, make sure you compile your program when you upgrade dependency JAR files.
+
+34) Difference between poll() and remove() method?
+	Both poll() and remove() take out the object from the Queue but if poll() fails then it returns null but if remove fails it throws Exception.
+	
+35) The difference between LinkedHashMap and PriorityQueue in Java? 
+	PriorityQueue guarantees that lowest or highest priority element always remain at the head of the queue, but LinkedHashMap maintains the order on which elements are inserted. When you iterate over a PriorityQueue, iterator doesn't guarantee any order but iterator of LinkedHashMap does guarantee the order on which elements are inserted
+	
+36) Which kind of tree is used to implement TreeMap in Java? (answer)
+	A Red Black tree is used to implement TreeMap in Java.
+
+
+37) What best practices you follow while writing multi-threaded code in Java? (answer)
+	Here are couple of best practices which I follow while writing concurrent code in Java:
+	a) Always name your thread, this will help in debugging.
+	b) minimize the scope of synchronization, instead of making whole method synchronized, only critical section should be synchronized.
+	c) prefer volatile over synchronized if you can can.
+	e) use higher level concurrency utilities instead of waitn() and notify for inter thread communication e.g. BlockingQueue, CountDownLatch and Semeaphore.
+	e) Prefer concurrent collection over synchronized collection in Java. They provide better scalability.
+
+38) Tell me few best practices you apply while using Collections in Java? (answer)
+	Here are couple of best practices I follow while using Collectionc classes from Java:
+	a) Always use the right collection e.g. if you need non-synchronized list then use ArrayList and not Vector.
+	b) Prefer concurrent collection over synchronized collection because they are more scalable.
+	c) Always use interface to a represent and access a collection e.g. use List to store ArrayList, Map to store HashMap and so on.
+	d) Use iterator to loop over collection.
+	e) Always use generics with collection.
+	
+39) Name 5 JDBC best practices your follow? (answer)
+	Another good Java best practices for experienced Java developer of 7 to 8 years experience. Why it's important? because they are the ones which set the trend in the code and educate junior developers. There are many best practices and you can name as per your confort and conviniece. Here are some of the more common ones:
+	a) use batch statement for inserting and updating data.
+	b) use PreparedStatement to avoid SQL exception and better performance.
+	c) use database connection pool
+	d) access resultset using column name instead of column indexes.
+	e) Don't generate dynamic SQL by concatenating String with user input.
 
