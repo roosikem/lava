@@ -1,69 +1,58 @@
-package com.journaldev.hibernate.main;
+package com.example.web.controller;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-public class ReadFileTest {
+public class ReadFile implements Runnable{
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		File f = new File("G:/Files");
-		String[] directory = f.list();
-		List<String> arrayList = Arrays.asList(directory);
-		
-		List<Integer> list = new ArrayList<Integer>();
-		List<Integer> number = new ArrayList<Integer>();
-		for (int start = 0; start < arrayList.size(); start += 1000) {
-	        int end = Math.min(start + 1000, arrayList.size());
-	        List<String> sublist = arrayList.subList(start, end);
-	        list.add(sublist.size());
-	    }
-		
-		for(int i=0;i<list.size();i++){
-			if(i==0){
-				number.add(list.get(i));
-			}else if(i == list.size() -1){
-				number.add(list.get(i)+number.get(i-1));
-			}else {
-				number.add(list.get(i)+number.get(i-1));
-			}
-		}
-		long startTime = System.currentTimeMillis();
-		ExecutorService executor = Executors.newFixedThreadPool(number.size());
-		for(int j = 0; j<number.size();j++){
-			if(j==0){
-				ReadFile f1 = new ReadFile(0,number.get(j)-1,directory);
-				executor.execute(f1);
-			}else if(j == number.size() -1){
-				ReadFile f1 = new ReadFile(number.get(j-1),number.get(j)-1,directory);
-				executor.execute(f1);
-				//System.out.println(number.get(j));
-			}
-			
-			else{
-				ReadFile f1 = new ReadFile(number.get(j),number.get(j+1)-1,directory);
-				executor.execute(f1);
-			}
-			
-		}
-		
-		executor.shutdown();
-        while (!executor.isTerminated()) {
-        }
-        System.out.println("Finished all threads");
-        
-        System.out.println(System.currentTimeMillis()-startTime);
+	private int end;
+	private int start;
+	private String[] directory;
+	
+	public ReadFile(int start, int end, String[] directory){
+		this.end =end;
+		this.start = start;
+		this.directory = directory;
 	}
 	
-	 
-	 
-	 
+	public void run() {
+		for(int i = start; i<end;i++){
+			System.out.println(directory[i]);
+			FileInputStream Fread=null;
+			 FileOutputStream Fwrite =null;
+			try {
+				File yourFile = new File("D:/Test2/"+directory[i]);
+				yourFile.createNewFile();
+				Fread = new FileInputStream("D:/Test/"+directory[i]);
+				Fwrite=new FileOutputStream(yourFile,false) ; 
+		            System.out.println("File is Copied"); 
+		            int c; 
+		            while((c=Fread.read())!=-1) 
+		            Fwrite.write((char)c); 
+		            Fread.close(); 
+		            Fwrite.close(); 
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					Fread.close();
+					Fwrite.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+	           
+			}
+           
+		}
+		
+	}
 
 }
